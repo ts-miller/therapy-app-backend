@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_14_020731) do
+ActiveRecord::Schema.define(version: 2021_01_14_164146) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "date"
@@ -22,11 +22,13 @@ ActiveRecord::Schema.define(version: 2021_01_14_020731) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
     t.integer "age"
     t.text "summary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "last_name"
+    t.string "location"
   end
 
   add_foreign_key "appointments", "clients"
