@@ -9,7 +9,6 @@ class ClientsController < ApplicationController
 
     def create
         @client = Client.new(client_params)
-
         if @client.save
             render json: @client, status: :created, location: @client
         else
@@ -26,11 +25,11 @@ class ClientsController < ApplicationController
     private
 
         def set_client
-            @client = Pet.find(params[:id])
+            @client = Client.find(params[:id])
         end
 
         def client_params
-            params.require(:client).permit(:name, :age, :summary)
+            params.require(:client).permit(:first_name, :last_name, :age, :location, :summary)
         end
 
 end
