@@ -30,7 +30,7 @@ class ClientsController < ApplicationController
         end
 
         def client_params
-            params.require(:pet).permit(:name, :age, :summary)
+            params.require(:client).permit(:name, :age, :summary)
         end
 
 end
