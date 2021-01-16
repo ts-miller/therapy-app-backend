@@ -20,6 +20,8 @@ class ClientsController < ApplicationController
     end
 
     def destroy
+        @client.destroy
+        render json: @client
     end
 
     private
@@ -29,7 +31,7 @@ class ClientsController < ApplicationController
         end
 
         def client_params
-            params.require(:client).permit(:first_name, :last_name, :age, :location, :summary)
+            params.require(:client).permit(:id, :first_name, :last_name, :age, :location, :summary)
         end
 
 end

@@ -8,6 +8,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create
+        binding.pry
         @appointment = Appointment.new(appointment_params)
         if @appointment.save
             render json: @appointment, status: :created, location: @appointment
@@ -25,11 +26,12 @@ class AppointmentsController < ApplicationController
     private
 
         def set_appointment
+            binding.pry
             @client = Appointment.find(params[:id])
         end
 
         def appointment_params
-            params.require(:appointment).permit(:date, :time)
+            params.require(:appointment).permit(:client_id, :date, :time)
         end
 
 end
