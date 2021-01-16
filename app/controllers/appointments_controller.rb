@@ -20,13 +20,14 @@ class AppointmentsController < ApplicationController
     end
 
     def destroy
+        @appointment.destroy
+        render json: @appointment
     end
 
     private
 
         def set_appointment
-            binding.pry
-            @client = Appointment.find(params[:id])
+            @appointment = Appointment.find(params[:id])
         end
 
         def appointment_params
