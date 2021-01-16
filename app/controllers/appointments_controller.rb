@@ -8,7 +8,6 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        binding.pry
         @appointment = Appointment.new(appointment_params)
         if @appointment.save
             render json: @appointment, status: :created, location: @appointment
