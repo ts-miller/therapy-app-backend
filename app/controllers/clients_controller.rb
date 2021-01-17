@@ -20,6 +20,7 @@ class ClientsController < ApplicationController
     end
 
     def destroy
+        Appointment.where(client_id: @client.id).destroy_all
         @client.destroy
         render json: @client
     end
